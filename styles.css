@@ -13,6 +13,15 @@
   --toggle-surface: rgba(255, 250, 242, 0.86);
 }
 
+html {
+  min-height: 100%;
+  background-color: #f6f1e8;
+}
+
+html.dark-mode {
+  background-color: #0d1419;
+}
+
 body.dark-mode {
   color-scheme: dark;
   --bg: #0d1419;
@@ -41,6 +50,7 @@ body {
   min-height: 100vh;
   font-family: "Space Grotesk", sans-serif;
   color: var(--text);
+  background-color: var(--bg);
   background:
     radial-gradient(circle at top left, rgba(255, 255, 255, 0.7), transparent 28%),
     linear-gradient(145deg, var(--bg) 0%, #f9e8cf 45%, var(--bg-accent) 100%);

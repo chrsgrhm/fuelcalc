@@ -10,6 +10,7 @@ const highwayMpgInput = document.querySelector("#highway-mpg");
 const fuelPriceInput = document.querySelector("#fuel-price");
 const roundTripInput = document.querySelector("#round-trip");
 const combinedMpgOutput = document.querySelector("#combined-mpg");
+const themeColorMeta = document.querySelector("#theme-color-meta");
 
 const resultDistance = document.querySelector("#result-distance");
 const resultFuel = document.querySelector("#result-fuel");
@@ -56,8 +57,13 @@ function updateEfficiencyMode() {
 
 function applyTheme(theme) {
   const isDark = theme === "dark";
+  document.documentElement.classList.toggle("dark-mode", isDark);
   document.body.classList.toggle("dark-mode", isDark);
   themeToggle.checked = isDark;
+
+  if (themeColorMeta) {
+    themeColorMeta.setAttribute("content", isDark ? "#0d1419" : "#f6f1e8");
+  }
 }
 
 function initializeTheme() {
