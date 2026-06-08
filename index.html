@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fuel Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero">
+      <div class="hero-top">
+        <div>
+          <p class="eyebrow">Trip Planning</p>
+          <h1>Fuel Cost Calculator</h1>
+        </div>
+
+        <label class="theme-toggle" for="theme-toggle">
+          <input id="theme-toggle" name="theme-toggle" type="checkbox">
+          <span>Dark mode</span>
+        </label>
+      </div>
+
+      <p class="intro">
+        Estimate how much fuel your trip will use and what it will cost.
+      </p>
+    </section>
+
+    <section class="card calculator-card">
+      <form id="fuel-form" class="fuel-form">
+        <label>
+          Trip distance (miles)
+          <input id="distance" name="distance" type="number" min="0" step="0.1" value="120" required>
+        </label>
+
+        <label class="checkbox-row control-row">
+          <input id="use-manufacturer" name="use-manufacturer" type="checkbox">
+          <span>Use manufacturer efficiency</span>
+        </label>
+
+        <label id="manual-mpg-group">
+          Calculated MPG
+          <input id="mpg" name="mpg" type="number" min="0.1" step="0.1" value="28" required>
+          <small class="field-note">Use your hand math or your dashboard's average MPG readout.</small>
+        </label>
+
+        <div id="manufacturer-fields" class="manufacturer-fields" hidden>
+          <label>
+            City MPG
+            <input id="city-mpg" name="city-mpg" type="number" min="0.1" step="0.1" value="24">
+          </label>
+
+          <label>
+            Highway MPG
+            <input id="highway-mpg" name="highway-mpg" type="number" min="0.1" step="0.1" value="32">
+          </label>
+
+          <p class="combined-note">
+            Combined MPG:
+            <strong id="combined-mpg">27.1</strong>
+          </p>
+        </div>
+
+        <label>
+          Fuel price (per gallon)
+          <input id="fuel-price" name="fuel-price" type="number" min="0" step="0.01" value="3.49" required>
+        </label>
+
+        <label class="checkbox-row">
+          <input id="round-trip" name="round-trip" type="checkbox">
+          <span>Make this a round trip</span>
+        </label>
+
+        <button type="submit">Calculate</button>
+      </form>
+
+      <section class="results" aria-live="polite">
+        <article class="result-tile">
+          <span class="result-label">Adjusted distance</span>
+          <strong id="result-distance">120.0 mi</strong>
+        </article>
+        <article class="result-tile">
+          <span class="result-label">Fuel needed</span>
+          <strong id="result-fuel">4.29 gal</strong>
+        </article>
+        <article class="result-tile">
+          <span class="result-label">Estimated fuel cost</span>
+          <strong id="result-cost">$14.96</strong>
+        </article>
+        <article class="result-tile">
+          <span class="result-label">Cost per mile</span>
+          <strong id="result-mile">$0.12</strong>
+        </article>
+      </section>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
